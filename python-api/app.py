@@ -9,12 +9,12 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     db = mysql.connector.connect(
-    user=os.envion.getenv("DB_USER"),
-    host=os.getenv("DB_HOST"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        host=os.getenv("DB_HOST"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+    )
 
-)
     cursor = db.cursor()
     cursor.execute("SELECT 'hello from Flask and MYSQL'")
     result = cursor.fetchone()
